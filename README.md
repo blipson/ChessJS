@@ -44,33 +44,21 @@ There are functions written to convert the 120 square board to the regular 64 sq
 				sq64++;
 			}
 		}
-
 	}
 
-## Code Example
+At any given time there are actually two different boards being compared against each other, one for the files and one for the ranks. There's also a GameBoard object for the actual GUI 64 square board (the array itself is 120). We can get the square in either arry from a file number and a rank number using the fileRankToSquare() method.
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+## Pieces
+The pieces of the game are represented as the color followed by the piece name. For example, wK would mean white knight. There's a pieces array to represent all the pieces on the board.
 
-## Motivation
+## Forsyth–Edwards Notation (FEN)
+FEN is a system of representing any given chess position as a single string. The starting position is represented as "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1". Each rank is separated by a '/', and the piece positions are shown with the first letter of each piece. Lower case is for black, upper for white. The next letter determines who's move it is, followed by the castling permissions (if there's no castling allowed it's simply a '-'), then en pessante permissions for any pawns that might have that (again if there's none it's a '-'), followed by the half move clock (the number of half moves (where a full move is when both players make a move) since the last capture, used for draw purposes), then the fullmove number for the whole game. This is the notation used to put in and take out positions from the board, and is displayed in the GUI.
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
-
-## Installation
-
-Provide code examples and explanations of how to get the project.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
+## Castling
+Castling permissions are represented in a four-bit binary format where the first bit means white on king side, second means white on queen side, third means black on king side, and fourth means black on queen side. So if all permissions are allowed it'd be 1111, if none it'd be 0000. Thus the bits are represented as 1, 2, 4, and 8.
 
 ## Contributors
+This project was made by Ben Lipson in 2016.
 
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
-
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
+## References
+Most of the necessary learning done for this project came out of the YouTube series by Blue Fever Software found here: https://www.youtube.com/playlist?list=PLZ1QII7yudbe4gz2gh9BCI6VDA-xafLog
