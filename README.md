@@ -62,3 +62,6 @@ This project was made by Ben Lipson in 2016.
 
 ## References
 Most of the necessary learning done for this project came out of the YouTube series by Blue Fever Software found here: https://www.youtube.com/playlist?list=PLZ1QII7yudbe4gz2gh9BCI6VDA-xafLog
+
+## IN PROGRESS
+These features are currently in progress and will be updated soon hopefully
